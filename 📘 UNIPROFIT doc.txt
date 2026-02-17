@@ -1,0 +1,338 @@
+📘 UNIPROFIT
+Universal Seller Intelligence Platform
+Product Documentation – Version 1.0
+________________
+
+
+1️⃣ PRODUCT OVERVIEW
+Product Name:
+Uniprofit
+Tagline:
+Know Your Real Numbers Before You Sell.
+Product Type:
+Web-first SaaS Financial Intelligence Platform
+Target:
+Anyone selling anything:
+* Traders
+* E-commerce sellers
+* Service providers
+* SaaS founders
+* Digital creators
+________________
+
+
+2️⃣ CORE VALUE PROPOSITION
+Uniprofit helps sellers:
+* Calculate real net profit
+* Understand break-even levels
+* Measure risk exposure
+* Simulate future scenarios
+* Make data-driven decisions
+Uniprofit is NOT a calculator.
+It is a decision intelligence engine.
+________________
+
+
+3️⃣ USER SEGMENTS
+Segment A: Traders
+* Stock traders
+* Crypto traders
+* Forex traders
+Segment B: Product Sellers
+* Shopify sellers
+* Amazon sellers
+* Daraz sellers
+* Dropshippers
+Segment C: Service Sellers
+* Freelancers
+* Agencies
+* Consultants
+Segment D: SaaS / Subscription Founders
+________________
+
+
+4️⃣ SYSTEM ARCHITECTURE OVERVIEW
+Uniprofit consists of:
+1. Authentication Layer
+2. Seller Type Engine
+3. Universal Calculation Engine
+4. Risk Intelligence Engine
+5. Scenario Simulation Engine
+6. Reporting & Analytics
+7. Subscription & Billing
+8. Admin Control Panel
+________________
+
+
+5️⃣ USER FLOW
+Step 1: Landing Page
+* CTA: Start Free Trial
+* Explanation of value
+* Feature highlights
+Step 2: Account Creation
+* Email + Password
+* Google Login
+* Trial activation (7 days)
+Step 3: Onboarding
+User selects:
+* Seller Type
+   * Trading
+   * Physical Products
+   * Digital Products
+   * Services
+   * SaaS
+* Currency
+* Risk Profile (Low / Medium / High)
+________________
+
+
+6️⃣ SCREEN-WISE DOCUMENTATION
+________________
+
+
+🏠 1. Dashboard
+Purpose:
+Overview of financial health.
+Components:
+Top Cards:
+* Total Revenue
+* Total Cost
+* Net Profit
+* Profit Margin %
+* Risk Score (0–100)
+Charts:
+* Profit trend (monthly)
+* Risk exposure trend
+Summary:
+* Most risky item
+* Best performing item
+________________
+
+
+📦 2. Item Management Screen
+User can create:
+* Trade
+* Product
+* Service
+* Subscription model
+Each item type loads dynamic input fields.
+________________
+
+
+📊 3. Universal Calculation Engine
+A. Trading Mode
+Inputs:
+* Entry price
+* Exit price
+* Quantity
+* Broker fee %
+* Leverage
+* Stop loss
+Outputs:
+* Net profit
+* Risk per trade %
+* R:R ratio
+* Break-even price
+* Liquidation threshold
+________________
+
+
+B. Product Mode
+Inputs:
+* Cost price
+* Selling price
+* Commission %
+* Shipping
+* Ads cost
+* Return %
+* Tax
+Outputs:
+* Real net profit
+* Margin %
+* Break-even price
+* Safe discount %
+________________
+
+
+C. Service Mode
+Inputs:
+* Project price
+* Time invested
+* Team cost
+* Overheads
+* Tax
+Outputs:
+* True profit
+* Effective hourly rate
+* Net margin
+________________
+
+
+D. SaaS Mode
+Inputs:
+* Subscription price
+* CAC
+* Server cost
+* Churn %
+* Refund %
+Outputs:
+* LTV
+* Payback period
+* Net margin per user
+* Scalability risk
+________________
+
+
+🎛 4. Scenario Simulation Lab (Premium Feature)
+User can:
+* Clone scenario
+* Adjust variables using sliders
+* Compare Scenario A vs Scenario B
+* Save simulations
+This is a core selling feature.
+________________
+
+
+🚦 5. Risk Intelligence Engine
+Universal Risk Score calculated from:
+* Margin %
+* Volatility (if trading)
+* Fee exposure
+* Return rate
+* Churn
+* Leverage
+* Cost dependency
+Output:
+Score 0–100
+Color:
+Green (Safe)
+Yellow (Caution)
+Red (High Risk)
+________________
+
+
+🤖 6. AI Insight Engine
+Phase 1:
+Rule-based insights.
+Examples:
+Trading:
+“Risk per trade exceeds recommended 2%.”
+Product:
+“Return rate above safe threshold.”
+SaaS:
+“Churn high. Scaling may increase losses.”
+Phase 2:
+AI-generated advanced analysis.
+________________
+
+
+📈 7. Reports Module
+Reports available:
+* Daily summary
+* Weekly
+* Monthly
+* Custom range
+Export:
+* CSV
+* PDF
+________________
+
+
+👥 8. Multi-Item Portfolio View
+User can:
+* View all items
+* See total exposure
+* Aggregate risk score
+* Total capital deployed
+* Overall profit
+________________
+
+
+💳 9. Subscription Model
+Free Plan:
+* Limited items
+* Basic calculation
+* No simulation
+Pro Plan:
+* Unlimited items
+* Scenario lab
+* AI insights
+* Advanced reports
+Business Plan:
+* Multi-user
+* Team access
+* API integration
+* Advanced analytics
+________________
+
+
+🛠 10. Admin Panel
+Admin features:
+* User management
+* Subscription control
+* Revenue dashboard
+* Feature toggles
+* Platform presets
+* System announcements
+________________
+
+
+7️⃣ TECHNICAL REQUIREMENTS
+Frontend:
+Web-first (React / NextJS / Vue / Flutter Web acceptable)
+Backend:
+Node / Laravel / Django
+Database:
+PostgreSQL preferred
+AI Layer:
+Modular service
+Security:
+* JWT authentication
+* Role-based access
+* Secure financial calculations
+________________
+
+
+8️⃣ MUST-HAVE FEATURES (Non-Negotiable for Selling)
+1. Break-even auto calculation
+2. Scenario simulation
+3. Risk score visualization
+4. Multi-item dashboard
+5. Clean premium UI
+6. Export reports
+7. Free trial
+8. Clear onboarding
+Without these, Uniprofit becomes just a calculator.
+________________
+
+
+9️⃣ LAUNCH STRATEGY
+Phase 1:
+Build MVP (Calculation + Risk + Dashboard)
+Phase 2:
+Closed beta with mixed seller types
+Phase 3:
+Segmented marketing:
+* Traders
+* E-commerce
+* SaaS founders
+One engine. Multiple marketing messages.
+________________
+
+
+🔟 FUTURE ROADMAP
+* Broker API integration
+* Shopify integration
+* Real-time alerts
+* AI forecasting
+* Automated repricing suggestions
+________________
+
+
+Final Positioning
+Uniprofit is:
+A universal profit intelligence system.
+Not niche.
+Not limited.
+Not a calculator.
+It is a decision engine for seller

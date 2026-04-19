@@ -15,16 +15,17 @@ declare global {
 
 /**
  * Google AdSense display unit.
- * Renders nothing if NEXT_PUBLIC_ADSENSE_PUBLISHER_ID is not set.
+ * Uses NEXT_PUBLIC_ADSENSE_PUBLISHER_ID or the default UniProfit publisher ID.
  * Slot IDs are page-specific and set via props.
  */
 export function AdBanner({ slotId, className = '' }: AdBannerProps) {
   const adRef = useRef<HTMLModElement>(null)
   const initialized = useRef(false)
-  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID
+  const publisherId =
+    process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-6520119728614881'
 
   useEffect(() => {
-    if (!publisherId || !slotId || initialized.current) return
+    if (!slotId || initialized.current) return
     initialized.current = true
     try {
       ;(window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -33,7 +34,7 @@ export function AdBanner({ slotId, className = '' }: AdBannerProps) {
     }
   }, [publisherId, slotId])
 
-  if (!publisherId || !slotId) return null
+  if (!slotId) return null
 
   return (
     <div className={`flex justify-center items-center overflow-hidden ${className}`} aria-label="Advertisement">

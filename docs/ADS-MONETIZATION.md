@@ -153,7 +153,7 @@ Rules:
 
 1. Go to [adsense.google.com](https://adsense.google.com) and apply with this site
 2. Add `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=ca-pub-XXXXXXXXXXXXXXXX` to `.env.local`
-3. AdSense script is already wired into `app/layout.tsx` via `components/ad-sense-script.tsx`
+3. AdSense script is wired in `app/layout.tsx` via `next/script` with `strategy="beforeInteractive"` (same as Google’s `<head>` snippet). Publisher ID defaults to `ca-pub-6520119728614881` or set `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID`.
 4. Approval takes 1–2 weeks; until then, slots show nothing (graceful fallback)
 5. **Ad unit IDs** — create these in the AdSense dashboard:
    - `Responsive display` unit for `/ecommerce` (use `NEXT_PUBLIC_ADSENSE_SLOT_ECOMMERCE`)

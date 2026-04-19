@@ -336,18 +336,20 @@ export default function CalendarPage() {
             )}
 
             {!loading && plans.length === 0 && (
-              <Card className="border border-dashed border-border rounded-2xl p-10 text-center">
-                <CalendarIcon className="h-12 w-12 text-muted-foreground/60 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-foreground mb-1">No plans yet</h3>
-                <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
-                  Use the calculator to run a profit analysis, then record the result on the calendar to see it here.
-                </p>
-                <Button asChild>
-                  <Link href="/ecommerce">Go to calculator</Link>
-                </Button>
-              </Card>
-              {/* Affiliate: shown on empty state only — high-intent moment */}
-              <AffiliateCard variant="daraz" className="max-w-md mx-auto mt-4" />
+              <>
+                <Card className="border border-dashed border-border rounded-2xl p-10 text-center">
+                  <CalendarIcon className="h-12 w-12 text-muted-foreground/60 mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-foreground mb-1">No plans yet</h3>
+                  <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
+                    Use the calculator to run a profit analysis, then record the result on the calendar to see it here.
+                  </p>
+                  <Button asChild>
+                    <Link href="/ecommerce">Go to calculator</Link>
+                  </Button>
+                </Card>
+                {/* Affiliate: shown on empty state only — high-intent moment */}
+                <AffiliateCard variant="daraz" className="max-w-md mx-auto mt-4" />
+              </>
             )}
           </div>
         )}

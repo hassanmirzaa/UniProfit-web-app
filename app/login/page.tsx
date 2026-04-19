@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
@@ -10,9 +10,21 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { TrendingUp, Loader2, Mail, Lock, LogIn } from 'lucide-react'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import Image from 'next/image'
+import { Loader2, Mail, Lock, LogIn, ArrowLeft } from 'lucide-react'
+import { track } from '@/lib/analytics'
+import { AdBanner } from '@/components/ad-banner'
 
-export default function LoginPage() {
+export default function LoginPageWrapper() {
+  return (
+    <Suspense>
+      <LoginPage />
+    </Suspense>
+  )
+}
+
+function LoginPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { user, loading: authLoading } = useAuth()
@@ -38,6 +50,7 @@ export default function LoginPage() {
   const handleGoogleSignIn = async () => {
     setLoading(true)
     clearMessage()
+    track('auth', 'Login attempt', { method: 'google' })
     const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
@@ -58,6 +71,7 @@ export default function LoginPage() {
     setLoading(true)
     clearMessage()
     if (isSignUp) {
+      track('auth', 'Sign up attempt', { method: 'email_password' })
       const { error } = await supabase.auth.signUp({
         email: email.trim(),
         password,
@@ -73,6 +87,7 @@ export default function LoginPage() {
         text: 'Check your email for the confirmation link to complete sign up.',
       })
     } else {
+      track('auth', 'Login attempt', { method: 'email_password' })
       const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
       if (error) {
         setMessage({ type: 'error', text: error.message })
@@ -92,6 +107,7 @@ export default function LoginPage() {
     }
     setLoading(true)
     clearMessage()
+    track('auth', 'Login attempt', { method: 'otp' })
     const { error } = await supabase.auth.signInWithOtp({
       email: email.trim(),
       options: {
@@ -117,6 +133,7 @@ export default function LoginPage() {
     }
     setLoading(true)
     clearMessage()
+    track('auth', 'Verify OTP', { method: 'otp' })
     const { error } = await supabase.auth.verifyOtp({
       email: email.trim(),
       token: otpCode.trim(),
@@ -143,11 +160,15 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
-      <Link href="/" className="flex items-center gap-2 text-foreground mb-8">
-        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-          <TrendingUp className="w-6 h-6 text-primary-foreground" />
-        </div>
-        <span className="text-xl font-bold">Uniprofit</span>
+      <Link href="/" className="flex items-center justify-center mb-8">
+        <Image
+          src="/uniProfit-logo.png"
+          alt="UniProfit"
+          width={280}
+          height={84}
+          className="h-20 w-auto object-contain"
+          priority
+        />
       </Link>
 
       <Card className="w-full max-w-md p-6 border border-border">
@@ -307,15 +328,25 @@ export default function LoginPage() {
         </Tabs>
 
         {message && (
-          <p
-            className={`mt-4 text-sm ${
-              message.type === 'success' ? 'text-green-600 dark:text-green-400' : 'text-destructive'
-            }`}
+          <Alert
+            variant={message.type === 'success' ? 'default' : 'destructive'}
+            className={`mt-4 ${message.type === 'success' ? 'border-green-200 bg-green-50 dark:border-green-900/50 dark:bg-green-950/20' : ''}`}
           >
-            {message.text}
-          </p>
+            <AlertDescription>{message.text}</AlertDescription>
+          </Alert>
         )}
       </Card>
+      <Link
+        href="/"
+        className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back to calculator
+      </Link>
+      <AdBanner
+        slotId={process.env.NEXT_PUBLIC_ADSENSE_SLOT_LOGIN || ''}
+        className="mt-6 w-full max-w-sm"
+      />
     </div>
   )
 }

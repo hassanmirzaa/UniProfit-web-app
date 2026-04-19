@@ -1,7 +1,7 @@
-export const dynamic = 'force-dynamic'
-
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+
+export const dynamic = 'force-dynamic'
 
 const MAX_BODY_BYTES = 20_000
 const MAX_PROPERTIES_KEYS = 30

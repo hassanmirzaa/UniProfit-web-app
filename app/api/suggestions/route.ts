@@ -1,7 +1,7 @@
-export const dynamic = 'force-dynamic'
-
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+
+export const dynamic = 'force-dynamic'
 
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent'
 const COOLDOWN_HOURS = 1

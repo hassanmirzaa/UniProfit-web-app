@@ -80,9 +80,8 @@ export default function CalendarPage() {
               prev.map((p) => ({ ...p, scenario_name: nameMap.get(p.scenario_id) ?? 'Plan' }))
             )
           })
-          .finally(() => setLoading(false))
-      })
-      .catch(() => setLoading(false))
+          .then(() => setLoading(false), () => setLoading(false))
+      }, () => setLoading(false))
   }, [user])
 
   const { profitDays, lossDays, lowDays } = useMemo(() => {
@@ -243,22 +242,22 @@ export default function CalendarPage() {
                   month={month}
                   onMonthChange={setMonth}
                   selected={selectedDay ?? undefined}
-                  onSelect={setSelectedDay}
+                  onSelect={(day) => setSelectedDay(day ?? null)}
                   classNames={{
                     months: 'w-full',
                     month: 'w-full',
-                    month_caption: 'hidden',
+                    caption: 'hidden',
                     nav: 'hidden',
                     table: 'w-full border-collapse',
                     head_cell: 'text-muted-foreground rounded-md w-10 sm:w-12 font-medium text-xs uppercase tracking-wider p-1',
                     cell: 'h-10 w-10 sm:h-12 sm:w-12 text-center text-sm p-0.5 relative',
                     day: 'h-10 w-10 sm:h-12 sm:w-12 p-0 font-medium rounded-lg text-base transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
-                    day_button: 'h-full w-full rounded-lg',
-                    selected: 'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground',
-                    today: 'ring-2 ring-primary/50 font-semibold',
-                    outside: 'text-muted-foreground/50',
-                    disabled: 'opacity-40',
-                    hidden: 'invisible',
+                    nav_button: 'h-full w-full rounded-lg',
+                    day_selected: 'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground',
+                    day_today: 'ring-2 ring-primary/50 font-semibold',
+                    day_outside: 'text-muted-foreground/50',
+                    day_disabled: 'opacity-40',
+                    day_hidden: 'invisible',
                   }}
                   modifiers={{
                     profit: profitDays,
